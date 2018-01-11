@@ -5,14 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.arsr.mexpandablerecyclerview.adapter.BaseRecyclerViewAdapter;
+import com.arsr.mexpandablerecyclerview.bean.RecyclerViewData;
 import com.drawthink.demo.R;
 import com.drawthink.demo.bean.Book;
 import com.drawthink.demo.holder.BookViewHolder;
 
 import java.util.List;
 
-import drawthink.expandablerecyclerview.adapter.BaseRecyclerViewAdapter;
-import drawthink.expandablerecyclerview.bean.RecyclerViewData;
+
 
 /**
  * author：Drawthink
@@ -78,5 +79,9 @@ public class BookAdapter extends BaseRecyclerViewAdapter<String, Book,BookViewHo
     @Override
     public boolean canExpandAll() {
         return false;
+    }
+
+    public void removeChild(int position) {
+        notifyChildRemoved(position);
     }
 }

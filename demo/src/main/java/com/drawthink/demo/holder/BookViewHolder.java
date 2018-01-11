@@ -4,9 +4,9 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
+import com.arsr.mexpandablerecyclerview.holder.BaseViewHolder;
 import com.drawthink.demo.R;
 
-import drawthink.expandablerecyclerview.holder.BaseViewHolder;
 
 /**
  * author：Drawthink

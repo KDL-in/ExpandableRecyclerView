@@ -13,14 +13,14 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
+import com.arsr.mexpandablerecyclerview.bean.RecyclerViewData;
+import com.arsr.mexpandablerecyclerview.listener.OnRecyclerViewListener;
 import com.drawthink.demo.adapter.BookAdapter;
 import com.drawthink.demo.bean.Book;
 import com.drawthink.demo.itemdecoration.SimplePaddingDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
-import drawthink.expandablerecyclerview.bean.RecyclerViewData;
-import drawthink.expandablerecyclerview.listener.OnRecyclerViewListener;
 
 public class TextFragment extends Fragment implements OnRecyclerViewListener.OnItemClickListener, OnRecyclerViewListener.OnItemLongClickListener{
 
@@ -124,7 +124,8 @@ public class TextFragment extends Fragment implements OnRecyclerViewListener.OnI
     public void onChildItemLongClick(int position,int groupPosition, int childPosition, View view) {
         Book bean = (Book) mDatas.get(groupPosition).getChild(childPosition);
         Toast.makeText(getActivity(), "groupPos:" + groupPosition + "  childPos:" + childPosition + " child:" + bean.getName(), Toast.LENGTH_SHORT).show();
-        showDeleteDialog(position,groupPosition,childPosition,false);
+//        showDeleteDialog(position,groupPosition,childPosition,false);
+        adapter.removeChild(position);
     }
 
     /**

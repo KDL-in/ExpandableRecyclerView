@@ -240,10 +240,21 @@ public abstract class BaseRecyclerViewAdapter<T,S,VH extends BaseViewHolder> ext
             ((GroupItem) item).onExpand();
             showingDatas.removeAll(tempChilds);
             notifyItemRangeRemoved(position+1,tempChilds.size());
-            notifyItemRangeChanged(position+1,tempSize-(position+1));
+            notifyItemRangeChanged(position + 1, tempSize - (position + 1));
             return position;
         }
         return -1;
+    }
+
+    /**
+     * notify remove the child at position
+     * @param position childPosition
+     */
+    public void notifyChildRemoved(int position) {
+        int size = showingDatas.size();
+        showingDatas.remove(position);
+        notifyItemRemoved(position);
+        notifyItemChanged(position,size-position);
     }
     /**
      * @param position showingDatas position

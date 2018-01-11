@@ -6,14 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.arsr.mexpandablerecyclerview.adapter.BaseRecyclerViewAdapter;
+import com.arsr.mexpandablerecyclerview.bean.RecyclerViewData;
 import com.drawthink.demo.R;
 import com.drawthink.demo.bean.ImageBean;
 import com.drawthink.demo.holder.ImageViewHolder;
 
 import java.util.List;
 
-import drawthink.expandablerecyclerview.adapter.BaseRecyclerViewAdapter;
-import drawthink.expandablerecyclerview.bean.RecyclerViewData;
 
 /**
  * author：Drawthink

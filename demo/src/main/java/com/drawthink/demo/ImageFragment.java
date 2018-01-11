@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.arsr.mexpandablerecyclerview.bean.RecyclerViewData;
+import com.arsr.mexpandablerecyclerview.listener.OnRecyclerViewListener;
 import com.drawthink.demo.adapter.ImageAdapter;
 import com.drawthink.demo.bean.ImageBean;
 import com.drawthink.demo.itemdecoration.SimplePaddingDecoration;
@@ -17,8 +19,6 @@ import com.drawthink.demo.itemdecoration.SimplePaddingDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-import drawthink.expandablerecyclerview.bean.RecyclerViewData;
-import drawthink.expandablerecyclerview.listener.OnRecyclerViewListener;
 
 public class ImageFragment extends Fragment implements OnRecyclerViewListener.OnItemClickListener {
 
