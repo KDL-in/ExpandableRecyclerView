@@ -124,7 +124,7 @@ public class TextFragment extends Fragment implements OnRecyclerViewListener.OnI
     public void onChildItemLongClick(int position,int groupPosition, int childPosition, View view) {
         Book bean = (Book) mDatas.get(groupPosition).getChild(childPosition);
         Toast.makeText(getActivity(), "groupPos:" + groupPosition + "  childPos:" + childPosition + " child:" + bean.getName(), Toast.LENGTH_SHORT).show();
-//        showDeleteDialog(position,groupPosition,childPosition,false);
+        showDeleteDialog(position,groupPosition,childPosition,false);
         adapter.removeChild(position);
     }
 

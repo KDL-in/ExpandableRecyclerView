@@ -250,7 +250,7 @@ public abstract class BaseRecyclerViewAdapter<T,S,VH extends BaseViewHolder> ext
      * notify remove the child at position
      * @param position childPosition
      */
-    public void notifyChildRemoved(int position) {
+    protected void notifyRemoved(int position) {
         int size = showingDatas.size();
         showingDatas.remove(position);
         notifyItemRemoved(position);
@@ -260,7 +260,7 @@ public abstract class BaseRecyclerViewAdapter<T,S,VH extends BaseViewHolder> ext
      * @param position showingDatas position
      * @return GroupPosition
      */
-    private int getGroupPosition(int position) {
+    protected int getGroupPosition(int position) {
         Object item = showingDatas.get(position);
         if (item instanceof GroupItem) {
             for (int j = 0; j < allDatas.size(); j++) {
@@ -281,7 +281,7 @@ public abstract class BaseRecyclerViewAdapter<T,S,VH extends BaseViewHolder> ext
      * @param showDataPosition
      * @return ChildPosition
      */
-    private int getChildPosition(int groupPosition, int showDataPosition) {
+    protected int getChildPosition(int groupPosition, int showDataPosition) {
         Object item = showingDatas.get(showDataPosition);
         try {
             return childDatas.get(groupPosition).indexOf(item);
