@@ -247,6 +247,22 @@ public abstract class BaseRecyclerViewAdapter<T,S,VH extends BaseViewHolder> ext
     }
 
     /**
+     * return the adapter position of t which is a groupData
+     * note:you must to implement the equals() of T before use it
+     * @param t
+     * @return position
+     */
+    protected int getGroupAdapterPosition(T t) {
+        for (int i = 0; i < showingDatas.size(); i++) {
+            Object o = showingDatas.get(i);
+            if (o instanceof GroupItem) {
+                if (((GroupItem)o).getGroupData().equals(t)) return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
      * notify remove the child at position
      * note: before you remove, you must make sure that
      * the position you chosen is a child position
@@ -267,7 +283,7 @@ public abstract class BaseRecyclerViewAdapter<T,S,VH extends BaseViewHolder> ext
      * @param position
      * @param s
      */
-    protected void notifyInserted(int position,S s) {
+    protected void notifyChildInserted(int position,S s) {
         int size = showingDatas.size();
         showingDatas.add(position+1,s);
         notifyItemInserted(position+1);

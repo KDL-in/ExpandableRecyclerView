@@ -16,4 +16,10 @@ public class Book {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Book b = (Book) obj;
+        return name.equals(b.getName());
+    }
 }
