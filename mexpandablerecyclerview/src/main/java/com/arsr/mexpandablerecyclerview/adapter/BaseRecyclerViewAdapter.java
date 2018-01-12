@@ -268,11 +268,12 @@ public abstract class BaseRecyclerViewAdapter<T,S,VH extends BaseViewHolder> ext
      * the position you chosen is a child position
      * @param position childPosition
      */
-    protected void notifyRemoved(int position) {
+    protected S notifyChildRemoved(int position) {
         int size = showingDatas.size();
-        showingDatas.remove(position);
+        S s = (S) showingDatas.remove(position);
         notifyItemRemoved(position);
         notifyItemChanged(position,size-position);
+        return s;
     }
 
     /**
@@ -283,11 +284,12 @@ public abstract class BaseRecyclerViewAdapter<T,S,VH extends BaseViewHolder> ext
      * @param position
      * @param s
      */
-    protected void notifyChildInserted(int position,S s) {
+    protected int notifyChildInserted(int position,S s) {
         int size = showingDatas.size();
-        showingDatas.add(position+1,s);
-        notifyItemInserted(position+1);
-        notifyItemRangeChanged(position+1,size-position-1);
+        showingDatas.add(position,s);
+        notifyItemInserted(position);
+        notifyItemRangeChanged(position,size-position);
+        return position;
     }
     /**
      * @param position showingDatas position
