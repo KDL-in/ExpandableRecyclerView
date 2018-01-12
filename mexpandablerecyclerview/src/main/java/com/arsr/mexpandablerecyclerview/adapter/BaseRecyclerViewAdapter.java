@@ -248,6 +248,8 @@ public abstract class BaseRecyclerViewAdapter<T,S,VH extends BaseViewHolder> ext
 
     /**
      * notify remove the child at position
+     * note: before you remove, you must make sure that
+     * the position you chosen is a child position
      * @param position childPosition
      */
     protected void notifyRemoved(int position) {
@@ -255,6 +257,21 @@ public abstract class BaseRecyclerViewAdapter<T,S,VH extends BaseViewHolder> ext
         showingDatas.remove(position);
         notifyItemRemoved(position);
         notifyItemChanged(position,size-position);
+    }
+
+    /**
+     * notify insert a child at the position
+     * note: before you insert,you must make sure that
+     * the position you chosen is a group position
+     * and then the s will be inserted into position+1
+     * @param position
+     * @param s
+     */
+    protected void notifyInserted(int position,S s) {
+        int size = showingDatas.size();
+        showingDatas.add(position+1,s);
+        notifyItemInserted(position+1);
+        notifyItemRangeChanged(position+1,size-position-1);
     }
     /**
      * @param position showingDatas position

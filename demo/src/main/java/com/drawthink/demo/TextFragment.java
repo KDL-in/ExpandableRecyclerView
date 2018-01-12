@@ -116,8 +116,10 @@ public class TextFragment extends Fragment implements OnRecyclerViewListener.OnI
     @Override
     public void onGroupItemLongClick(int position,int groupPosition, View view) {
         String group = (String) mDatas.get(groupPosition).getGroupData();
-        Toast.makeText(getActivity(), "groupPos:" + groupPosition + " group:" + group, Toast.LENGTH_SHORT).show();
-        showDeleteDialog(position,groupPosition,0,true);
+        Book book = new Book(group);
+        mDatas.get(groupPosition).getGroupItem().getChildDatas().add(0,book);
+        adapter.insertAChild(position,groupPosition,view,group,book);
+
     }
 
     @Override

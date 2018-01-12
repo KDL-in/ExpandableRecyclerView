@@ -82,6 +82,10 @@ public class BookAdapter extends BaseRecyclerViewAdapter<String, Book,BookViewHo
     }
 
     public void removeChild(int position) {
-        notifyChildRemoved(position);
+        notifyRemoved(position);
+    }
+
+    public void insertAChild(int position, int groupPosition, View view, String group, Book newItem) {
+        notifyInserted(position,newItem);
     }
 }
